@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import data from "./data";
+import "./accodian.css";
 
 function Accordian() {
   const [selected, setSelected] = useState(false);
@@ -7,25 +8,19 @@ function Accordian() {
   const singleSelection = (getDataId) => {
     setSelected(getDataId == selected ? false : getDataId);
   };
-//   console.log(selected);
+  //   console.log(selected);
   return (
-    <div>
+    <div className="acc-wrapper">
       <div className="accordian">
         {data && data.length > 0 ? (
           data.map((dataItem) => (
-            <div className="item"  key={dataItem.id}>
+            <div className="item" key={dataItem.id}>
               <div className="title">
-                <h3 >
-                  {dataItem.question}
-                  <span
-                    onClick={() => singleSelection(dataItem.id)}
-                  >
-                    +
-                  </span>
-                </h3>
+                <h3>{dataItem.question}</h3>{" "}
+                <span onClick={() => singleSelection(dataItem.id)}>+</span>
               </div>
               {selected === dataItem.id ? (
-                <div className="content">{dataItem.answer}</div>
+                <div className="acc-content">{dataItem.answer}</div>
               ) : (
                 false
               )}
