@@ -12,7 +12,7 @@ function Accordian() {
   };
 
   const singleSelection = (getDataId) => {
-    setSelected(getDataId == selected ? false : getDataId);
+    setSelected(getDataId === selected ? false : getDataId);
   };
   const multiSelection = (getDataId) => {
     let copyMulti = [...multi];
@@ -34,7 +34,7 @@ function Accordian() {
           btnClicked();
         }}
       >
-        Select Multi
+        {enableMulti ? "Multi Selection" : "Single Selection"}
       </button>
       <div className="accordian">
         {data && data.length > 0 ? (
@@ -45,21 +45,21 @@ function Accordian() {
                 onClick={
                   enableMulti
                     ? () => {
-                        singleSelection(dataItem.id);
+                        multiSelection(dataItem.id);
                       }
                     : () => {
-                        multiSelection(dataItem.id);
+                        singleSelection(dataItem.id);
                       }
                 }
               >
                 <h3>{dataItem.question}</h3>
                 <span /*onClick={() => singleSelection(dataItem.id)}*/>+</span>
               </div>
-              {multiSelection
+              {enableMulti
                 ? multi.indexOf(dataItem.id) !== -1 && (
                     <div className="acc-content">{dataItem.answer}</div>
                   )
-                : selected !== dataItem.id && (
+                : selected === dataItem.id && (
                     <div className="acc-content">{dataItem.answer}</div>
                   )}
 
