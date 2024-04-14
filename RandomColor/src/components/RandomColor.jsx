@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Color.css";
 
 function RandomColor() {
   const [color, setColor] = useState("#aaa");
@@ -17,7 +18,7 @@ function RandomColor() {
   }
   const handleOnHexColor = () => {
     //example #000000
-    const hex = [0,1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "G", "F"];
+    const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "G", "F"];
     let hexColor = "#";
 
     for (let i = 0; i < 6; i++) {
@@ -34,33 +35,37 @@ function RandomColor() {
     setColor(`rgb(${r},${g},${b})`);
   };
   return (
-    <div>
-      <button
-        onClick={() => {
-          setTypeOf("hex");
-        }}
-      >
-        Select Hex Color
-      </button>
-      <button
-        onClick={() => {
-          setTypeOf("rgb");
-        }}
-      >
-        Select RGB Color
-      </button>
-      <button
-        onClick={
-          typeOf === "hex" ? () => handleOnHexColor() : () => handleOnRGBColor()
-        }
-      >
-        Ganerate a Random Color
-      </button>
+    <div className="parent">
+      <div className="btn">
+        <button
+          onClick={() => {
+            setTypeOf("hex");
+          }}
+        >
+          Select Hex Color
+        </button>
+        <button
+          onClick={() => {
+            setTypeOf("rgb");
+          }}
+        >
+          Select RGB Color
+        </button>
+        <button
+          onClick={
+            typeOf === "hex"
+              ? () => handleOnHexColor()
+              : () => handleOnRGBColor()
+          }
+        >
+          Ganerate a Random Color
+        </button>
+      </div>
+
       <br />
       <div
+        className="box"
         style={{
-          height: "200px",
-          width: "200px",
           backgroundColor: color,
         }}
       >
