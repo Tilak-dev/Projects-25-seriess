@@ -18,7 +18,13 @@ function RandomColor() {
     // console.log(hexColor);
     setColor(hexColor)
   };
-  const handleOnRGBColor = () => {};
+  const handleOnRGBColor = () => {
+    const r = randomColor(255);
+    const g = randomColor(255);
+    const b = randomColor(255);
+
+    setColor(`rgb(${r},${g},${b})`)
+  };
   return (
     <div>
       <button
