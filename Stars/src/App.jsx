@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div>
-        <Stars></Stars>
+        <Stars noOfIndex={10}></Stars>
       </div>
     </>
   )

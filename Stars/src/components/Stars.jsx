@@ -1,11 +1,32 @@
-import React from 'react'
+import React from "react";
+import { BsFillStarFill } from "react-icons/bs";
 
-function Stars() {
+function Stars(indexOfStars = 5) {
+  function handleOnClick(getIndex) {
+    console.log(getIndex);
+  }
+  function handleOnEnter(getIndex) {
+    console.log(getIndex);
+  }
+  function handleOnLeave(getIndex) {
+    console.log(getIndex);
+  }
   return (
     <div>
-      <button:star></button:star>
+      {[...Array(indexOfStars)].map((_,index) => {
+        index++;
+        return (
+          <BsFillStarFill
+            key={index}
+            onClick={() => handleOnClick(index)}
+            onMouseMove={() => handleOnEnter(index)}
+            onMouseLeave={() => handleOnLeave(index)}
+            size={40}
+          />
+        );
+      })}
     </div>
-  )
+  );
 }
 
-export default Stars
+export default Stars;
