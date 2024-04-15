@@ -1,13 +1,12 @@
 import './App.css'
-import RandomColor from "./components/RandomColor"
-
+import Stars from "./components/Stars"
 
 function App() {
 
   return (
     <>
       <div>
-        <RandomColor />
+        <Stars></Stars>
       </div>
     </>
   )
