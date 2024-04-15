@@ -1,30 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsFillStarFill } from "react-icons/bs";
+import "./stars.css";
 
-function Stars(indexOfStars = 5) {
+function Stars({ indexOfStars = 2 }) {
+  const [selected, setSelected] = useState(0);
+  const [hover, setHover] = useState(0);
+
   function handleOnClick(getIndex) {
-    console.log(getIndex);
+    setSelected(getIndex);
   }
   function handleOnEnter(getIndex) {
-    console.log(getIndex);
+    setHover(getIndex);
   }
-  function handleOnLeave(getIndex) {
-    console.log(getIndex);
+  function handleOnLeave() {
+    setHover(selected);
   }
   return (
-    <div>
-      {[...Array(indexOfStars)].map((_,index) => {
+    <div className="box">
+      {[...Array(indexOfStars)].map((_, index) => {
         index++;
         return (
           <BsFillStarFill
             key={index}
+            className={index <= (hover || selected) ? "active" : "inactive"}
             onClick={() => handleOnClick(index)}
             onMouseMove={() => handleOnEnter(index)}
-            onMouseLeave={() => handleOnLeave(index)}
+            onMouseLeave={() => handleOnLeave()}
             size={40}
           />
         );
       })}
+      <br  />
+      <br  />
+      <b className="br">Hii there, you have Selected {selected ? selected : "0"}</b>
     </div>
   );
 }

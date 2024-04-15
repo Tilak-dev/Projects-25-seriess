@@ -1,0 +1,14 @@
+.box {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.active {
+  color: gold;
+  transition: all ease-in-out 0.39s;
+  cursor: pointer;
+}
+.inactive {
+  color: #000;
+  cursor: pointer;
+}

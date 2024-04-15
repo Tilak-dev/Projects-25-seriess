@@ -1,14 +1,11 @@
-import './App.css'
-import Stars from "./components/Stars"
+import React from 'react'
+import Stars from './components/Stars'
 
 function App() {
-
   return (
-    <>
-      <div>
-        <Stars noOfIndex={10}></Stars>
-      </div>
-    </>
+    <div >
+      <Stars indexOfStars={10}/>
+    </div>
   )
 }
 
