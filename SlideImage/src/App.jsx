@@ -1,12 +1,12 @@
-import React from 'react'
-import Stars from './components/Stars'
+import React from "react";
+import ImageBox from "./components/ImageBox";
 
 function App() {
   return (
-    <div >
-      <Stars indexOfStars={10}/>
+    <div>
+      <ImageBox />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
